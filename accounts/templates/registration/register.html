@@ -1,0 +1,115 @@
+{% extends 'accounts/another_base.html' %}
+{% block content %}
+
+
+<!-- welcome message -->
+<div class="row">
+<div class="col-3">
+
+<div class="welcome">
+	<h1 class="welcome__header">Welcome!</h1>
+	<p class="welcome__message">
+		we welcome you to our room locator website your experience on the platform is in our best interest
+	</p>
+</div>
+</div>
+
+<div class="col-9">
+
+
+<div class="card">
+	<h3 class="card__title">
+		Register
+		<hr>
+	</h3>
+	<form class="form" method="POST">
+		{% csrf_token %}
+		 <div>
+			<input
+			type="text" 
+			name="first_name" 
+			maxlength="50"
+			required id="id_first_name"
+			class="form__input"
+			placeholder="First Name"
+			/>
+		 </div>
+
+		 <div>
+			<input 
+			type="text" 
+			name="last_name" 
+			maxlength="50" 
+			required id="id_last_name"
+			class="form__input"
+			placeholder="Last Name"
+			/>
+		 </div>
+
+		 <div>
+			<input
+			type="email" 
+			name="email"
+			required
+			id="id_email"
+			class="form__input"
+			placeholder="Email"
+			/>
+		 </div>
+
+		 <div class="input">
+		
+			<input 
+			type="text" 
+			name="cellphone" 
+			maxlength="15" 
+			required 
+			id="id_cellphone"
+			class="form__input"
+			placeholder="Cellphone"
+			/>
+			
+		 </div>
+
+		 <div>
+			 <!-- =================== The bar to show the password strength ======================================= -->
+			<div class="strength-meter" id="strength-meter"></div>
+			
+			<input 
+			type="password" 
+			name="password1" 
+			autocomplete="new-password" 
+			required id="id_password1"
+			class="form__input"
+			placeholder="Password"
+			/>
+			<!-- ====================== Showing characters needed to make the password stronger ================================== -->
+			<div class="reasons" id="reasons"></div>
+		 </div>
+
+		 <div> 
+			<input 
+			type="password" 
+			name="password2" 
+			autocomplete="new-password" 
+			required id="id_password2"
+			class="form__input"
+			placeholder="Confirm Password"
+			/> 
+			<div class="not-the-same-reason" id="confirm-reasons"></div>
+		 </div>
+
+		<button class="form__button">Register</button>
+	</form>
+
+	<div class="card__footer">
+		<a href="{% url 'accounts:login' %}">Already have an account</a>
+	</div>
+
+
+</div>
+</div>
+
+</div>
+
+{% endblock %}
